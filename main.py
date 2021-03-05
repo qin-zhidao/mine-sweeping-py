@@ -1,6 +1,8 @@
 import pygame
 import os, sys
 import json
+import time
+
 
 def update_config(level_info=None):
     '''更新默认难度及排行榜信息'''
@@ -11,7 +13,8 @@ def update_config(level_info=None):
     return level_info
 
 def main():
-    # 默认游戏难度信息
+
+    # 游戏配置信息
     level_info = update_config()
 
     mine_size = 20 # 雷的大小
@@ -31,6 +34,7 @@ def main():
     while running:
         for event in pygame.event.get():
             print(event)
+            # 点击窗口关闭按钮
             if event.type == pygame.QUIT:
                 running = False
                 
