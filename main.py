@@ -1,18 +1,33 @@
 import pygame
-import os
-import sys
+import os, sys
+import json
 
-screen_width = 200
-screen_height = 200
+def update_config(level_info=None):
+    '''更新默认难度及排行榜信息'''
+    with open('data.json', 'r') as f:
+        load_f = json.load(f)['data']
+        __level = load_f['default_level'][0]['val']
+        level_info = load_f['level_info'][__level]
+    return level_info
 
 def main():
-    pygame.init()
+    # 默认游戏难度信息
+    level_info = update_config()
 
-    screen = pygame.display.set_mode(
-        [screen_width, screen_height]
-    )
-    pygame.display.set_caption('test')
+    mine_size = 20 # 雷的大小
+    if level_info == None:
+        print('游戏配置信息加载失败')
+        exit()
+    screen_size = [
+        level_info['size'][0] * mine_size, 
+        level_info['size'][1] * mine_size
+    ] 
+
+    pygame.init()
+    screen = pygame.display.set_mode(screen_size)
+    pygame.display.set_caption('扫雷')
     running = True # 程序状态
+
     while running:
         for event in pygame.event.get():
             print(event)

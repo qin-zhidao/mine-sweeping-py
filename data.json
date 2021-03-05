@@ -1,0 +1,22 @@
+{
+    "data": {
+        "default_level": [{"val": 0}],
+        "level_info": [
+            {
+                "mine_count": 10,
+                "size": [9, 9],
+                "top": [99, "no name"]
+            },
+            {
+                "mine_count": 40,
+                "size": [16, 16],
+                "top": [99, "no name"]
+            },
+            {
+                "mine_count": 99,
+                "size": [30, 16],
+                "top": [99, "no name"]
+            }
+        ]
+    }
+}
